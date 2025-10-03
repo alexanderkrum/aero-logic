@@ -1,7 +1,15 @@
-export default function Home() {
-  return (
-    <main className="text-xl">
+import Link from 'next/link';
 
-    </main>
-  );
+export default function Home() {
+    const model = createLandingPageModel();
+
+    return (
+        <main className="text-xl">
+            <p data-test="work-interval">{model.workInterval}</p>
+            <p data-test="timestamp"></p>
+            <p>Welcome!</p>
+
+            <Link href="">See random riddle</Link>
+        </main>
+    );
 }
