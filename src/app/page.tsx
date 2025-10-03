@@ -2,12 +2,12 @@ import Link from 'next/link';
 import { createLandingPageModel } from './LandingPageModelService';
 
 export default function Home() {
-    const {interval} = createLandingPageModel(new Date());
+    const {interval, timestamp} = createLandingPageModel(new Date());
 
     return (
         <main className="text-xl">
             <p data-test="work-interval">{interval}</p>
-            <p data-test="timestamp"></p>
+            <p data-test="timestamp">{timestamp}</p>
             <p>Welcome!</p>
 
             <Link href="">See random riddle</Link>
