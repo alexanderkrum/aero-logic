@@ -28,7 +28,7 @@ describe('Random riddle display', () => {
 
         cy.get('[data-test="entry-control"]').click();
 
-        cy.url().contains('/riddle/RIDDLE_ID');
+        cy.url().should('contain', '/riddle/RIDDLE_ID');
         cy.contains('Riddle contents').should('be.visible');
     });
 });
