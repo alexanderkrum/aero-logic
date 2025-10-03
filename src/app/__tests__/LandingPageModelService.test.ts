@@ -8,7 +8,7 @@ describe('Landing page model service', () => {
 
         const result = createLandingPageModel(date);
 
-        expect(result).toBe('Busy times');
+        expect(result.interval).toBe('Busy times');
     });
 
     it('returns model with busy times work interval', () => {
@@ -17,6 +17,6 @@ describe('Landing page model service', () => {
 
         const result = createLandingPageModel(date);
 
-        expect(result).toBe('Easy jets');
+        expect(result.interval).toBe('Easy jets');
     });
 });
