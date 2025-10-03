@@ -1,13 +1,8 @@
+import { formatZeroBased } from '../services/date-service/FormatZeroBased';
+
 interface PageModel {
     interval: string;
     timestamp: string;
-}
-
-function formatZeroBased(number: number) {
-    if (number < 10) {
-        return `0${number}`;
-    }
-    return number.toString();
 }
 
 export function createLandingPageModel(date: Date) {
@@ -23,7 +18,7 @@ export function createLandingPageModel(date: Date) {
         pageModel.interval = 'Busy times';
     }
 
-    pageModel.timestamp = `${date.getFullYear()}-${(formatZeroBased(date.getMonth()+1))}-${formatZeroBased(date.getDate())} ${formatZeroBased(date.getHours())}${formatZeroBased(date.getMinutes())}`;
+    pageModel.timestamp = `${date.getFullYear()}-${formatZeroBased(date.getMonth() + 1)}-${formatZeroBased(date.getDate())} ${formatZeroBased(date.getHours())}${formatZeroBased(date.getMinutes())}`;
 
     return pageModel;
 }
