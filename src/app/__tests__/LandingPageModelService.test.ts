@@ -19,4 +19,15 @@ describe('Landing page model service', () => {
 
         expect(result.interval).toBe('Easy jets');
     });
+
+    it('returns model with timestamp', () => {
+        const date = new Date();
+        date.setFullYear(2025, 0, 16)
+        date.setHours(13);
+        date.setMinutes(0);
+
+        const result = createLandingPageModel(date);
+
+        expect(result.timestamp).toBe('2025-01-16 1300')
+    });
 });
