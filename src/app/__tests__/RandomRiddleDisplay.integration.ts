@@ -1,8 +1,13 @@
+import { useRandomRiddle } from '../../domain/riddle/RandomRiddleAdapter';
+
 describe('Random riddle display', () => {
     it('see airport details and random riddle', () => {
         // Random riddle id stub
         // /api/random-riddle
         // { id: 'RIDDLE_ID' }
+        cy.injectFakeAdapter(useRandomRiddle, {
+            body: { id: 'RIDDLE_ID' },
+        });
 
         // Riddle details stub
         // /api/riddle/{RIDDLE_ID}

@@ -1,8 +1,11 @@
 import Link from 'next/link';
 import { createLandingPageModel } from './LandingPageModelService';
+import { useRandomRiddle } from '../domain/riddle/RandomRiddleAdapter';
 
-export default function Home() {
-    const {interval, timestamp} = createLandingPageModel(new Date());
+export default async function Home() {
+    const { getData } = await useRandomRiddle();
+    const { id: randomRiddleId } = await getData();
+    const { interval, timestamp } = createLandingPageModel(new Date());
 
     return (
         <main className="text-xl">
@@ -10,7 +13,9 @@ export default function Home() {
             <p data-test="timestamp">{timestamp}</p>
             <p>Welcome!</p>
 
-            <Link href="">See random riddle</Link>
+            <Link href={`/riddle/${randomRiddleId}`} data-test="entry-control">
+                See random riddle
+            </Link>
         </main>
     );
 }
